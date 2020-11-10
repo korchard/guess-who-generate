@@ -29,18 +29,23 @@ function isItThem() {
     let person = $(this).parent().data('person');
     if (people[randomIndex].name == person) { // determines if the image clicked on matches the random person
         alert('YAAAAS! You got it!');
-        keepPlaying(); // automatically randomizes another person after correct person is chosen
+
+        //TRYING TO CREATE AN ANIMATION OF SORTS FOR WHEN CORRECT ONE IS GUESSED
+        //$('.people').fadeTo('slow', function() {
+            //$('.people').fadeToggle('fast', 0.5)
+        //});
+        keepPlaying(); // automatically randomizes another person after correct person is chosen - can still press button if you want
     } else {
         alert('You did NOT guess who!');
     } // end conditional 
 } // end isItThem function
 
-function randomNumber(min, max){
+function randomNumber(min, max){ // this function was provided for us
     return Math.floor(Math.random() * (1 + max - min) + min);
 } // end randomNumber function
 
 function keepPlaying() {
-    randomIndex = randomNumber(min, max);
+    randomIndex = randomNumber(min, max); // randomizes the next person to guess
     alert(`Choose ${people[randomIndex].name}!`);
 } // end keepPlaying function
 
