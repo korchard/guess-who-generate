@@ -15,6 +15,7 @@ function onReady() {
 } // end onReady function
 
 function display() {
+    shuffle(people);
     for (let individual of people) {
         $('.people').append(
             `<div class="images" data-person="${individual.name}">
@@ -26,9 +27,9 @@ function display() {
 
 function isItThem() {
     let person = $(this).parent().data('person');
-    //console.log(person);
-    if (people[randomIndex].name == person) {
+    if (people[randomIndex].name == person) { // determines if the image clicked on matches the random person
         alert('YAAAAS! You got it!');
+        keepPlaying(); // automatically randomizes another person after correct person is chosen
     } else {
         alert('You did NOT guess who!');
     } // end conditional 
@@ -42,3 +43,23 @@ function keepPlaying() {
     randomIndex = randomNumber(min, max);
     alert(`Choose ${people[randomIndex].name}!`);
 } // end keepPlaying function
+
+function shuffle(people) {
+    for (let i = people.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+        [people[i], people[j]] = [people[j], people[i]];
+    }
+}
+
+/*function shuffle(people) {
+    for (let i = people.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+  
+      // swap elements array[i] and array[j]
+      // we use "destructuring assignment" syntax to achieve that
+      // you'll find more details about that syntax in later chapters
+      // same can be written as:
+      // let t = array[i]; array[i] = array[j]; array[j] = t
+      [people[i], people[j]] = [people[j], people[i]];
+    }
+  }*/
