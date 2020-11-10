@@ -1,0 +1,21 @@
+
+#continue {
+    background-color: darkmagenta;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.people {
+    display: inline;
+    clear: both;
+}
+
+.images {
+    display: table;
+}
+
+
+
