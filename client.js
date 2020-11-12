@@ -19,7 +19,7 @@ function display() {
     for (let individual of people) {
         $('.people').append(
             `<div class="images" data-person="${individual.name}">
-                <button class="thisOne"><img src="https://github.com/${individual.githubUsername}.png?size=250" 
+                <button class="thisOne"><img class="colorChange"src="https://github.com/${individual.githubUsername}.png?size=250" 
                 alt="Profile image of ${individual.name}"></button>
                 </div>`);
     } // loop through array of people and append the images to the DOM
@@ -29,9 +29,9 @@ function isItThem() {
     let person = $(this).parent().data('person');
     if (people[randomIndex].name == person) { // determines if the image clicked on matches the random person
         alert('YAAAAS! You got it!');
-
         //TRYING TO CREATE AN ANIMATION OF SORTS FOR WHEN CORRECT ONE IS GUESSED
         movePic();
+        $('.colorChange').css('border', '1em solid #e6b22e');
         //alert('Press the button and keep playing!');
     } else {
         alert('You did NOT guess who!');
@@ -43,6 +43,7 @@ function randomNumber(min, max){ // this function was provided for us
 } // end randomNumber function
 
 function keepPlaying() {
+    $('.colorChange').removeAttr('style');
     randomIndex = randomNumber(min, max); // randomizes the next person to guess
     alert(`Choose ${people[randomIndex].name}!`);
 } // end keepPlaying function
