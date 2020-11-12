@@ -31,10 +31,8 @@ function isItThem() {
         alert('YAAAAS! You got it!');
 
         //TRYING TO CREATE AN ANIMATION OF SORTS FOR WHEN CORRECT ONE IS GUESSED
-        //$('.people').fadeTo('slow', function() {
-            //$('.people').fadeToggle('fast', 0.5)
-        //});
-        keepPlaying(); // automatically randomizes another person after correct person is chosen - can still press button if you want
+        movePic();
+        //keepPlaying(); // automatically randomizes another person after correct person is chosen - can still press button if you want
     } else {
         alert('You did NOT guess who!');
     } // end conditional 
@@ -57,3 +55,13 @@ function shuffle(people) {
       [people[i], people[j]] = [people[j], people[i]];
     } // end for loop
   } // end shuffle function
+
+function movePic() { // animation stretch goal
+    $('#guessWho').animate({ //use jquery to animate the image
+      left: '2000',
+      height: '+=2500px',
+      width: '+=4500px'
+    }, function restart() { //created another function to restart/reset the animation
+      $('#guessWho').removeAttr('style');
+    }); // end animate method
+  } // end moveCar 
