@@ -32,7 +32,7 @@ function isItThem() {
 
         //TRYING TO CREATE AN ANIMATION OF SORTS FOR WHEN CORRECT ONE IS GUESSED
         movePic();
-        //keepPlaying(); // automatically randomizes another person after correct person is chosen - can still press button if you want
+        //alert('Press the button and keep playing!');
     } else {
         alert('You did NOT guess who!');
     } // end conditional 
@@ -58,7 +58,7 @@ function shuffle(people) {
 
 function movePic() { // animation stretch goal
     $('#guessWho').animate({ //use jquery to animate the image
-      left: '2000',
+      left: '1000',
       height: '+=2500px',
       width: '+=4500px'
     }, function restart() { //created another function to restart/reset the animation
